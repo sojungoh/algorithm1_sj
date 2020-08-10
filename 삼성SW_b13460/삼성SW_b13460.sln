@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.489
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "삼성SW_b13460", "삼성SW_b13460.vcxproj", "{FA687B25-43E9-4780-9735-1DE9479EAE0C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FA687B25-43E9-4780-9735-1DE9479EAE0C}.Debug|x64.ActiveCfg = Debug|x64
+		{FA687B25-43E9-4780-9735-1DE9479EAE0C}.Debug|x64.Build.0 = Debug|x64
+		{FA687B25-43E9-4780-9735-1DE9479EAE0C}.Debug|x86.ActiveCfg = Debug|Win32
+		{FA687B25-43E9-4780-9735-1DE9479EAE0C}.Debug|x86.Build.0 = Debug|Win32
+		{FA687B25-43E9-4780-9735-1DE9479EAE0C}.Release|x64.ActiveCfg = Release|x64
+		{FA687B25-43E9-4780-9735-1DE9479EAE0C}.Release|x64.Build.0 = Release|x64
+		{FA687B25-43E9-4780-9735-1DE9479EAE0C}.Release|x86.ActiveCfg = Release|Win32
+		{FA687B25-43E9-4780-9735-1DE9479EAE0C}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A1F1C348-CA9E-4E74-8D58-BD42C2328F5E}
+	EndGlobalSection
+EndGlobal
