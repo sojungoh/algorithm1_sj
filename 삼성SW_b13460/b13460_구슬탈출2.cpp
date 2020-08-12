@@ -6,6 +6,7 @@ using namespace std;
 struct Ball {
 	int x, y;
 	char ch;
+	bool sc;
 
 	int findRoadFirst(char top, char bottom, char left, char right) {
 		if (top == 'O') {
@@ -57,8 +58,7 @@ struct Ball {
 };
 
 int main(void) {
-	int n, m, rx, ry, t = 0, ans = 1;
-	int trace[10];
+	int n, m, rx, ry, ans = 1;
 	Ball r;
 	Ball b;
 	Ball o;
@@ -78,8 +78,6 @@ int main(void) {
 			if (arr[i][j] == 'R') {
 				r.x = i;
 				r.y = j;
-				rx = r.x;
-				ry = r.y;
 			}
 			else if (arr[i][j] == 'B') {
 				b.x = i;
@@ -96,124 +94,178 @@ int main(void) {
 
 	do {
 		if (num == 1) {
+			rx = r.x; ry = r.y;
 			if (arr[r.x - 1][r.y] == '#') {
 				ans += 1;
-				trace[t] = num; t++;
 				num = r.findRoadTB(arr[r.x][r.y - 1], arr[r.x][r.y + 1]);
-			}
-			else if (arr[r.x - 1][r.y] == 'O') {
-				trace[t] = num;
-				r.x -= 1;
 			}
 			else {
 				r.x -= 1;
+			}
+			
+			if (r.y == b.y) {
+				if (rx == b.x - 1) {
+					if (arr[r.x - 1][r.y] == '#') {
+						b.x = r.x + 1;
+					}
+					else if (arr[r.x][r.y] == 'O') {
+						ans = -1;
+					}
+					else continue;
+				}
+				else {
+					do {
+						if (arr[b.x - 1][b.y] == 'O') {
+							ans = -1;
+						}
+						else if (arr[b.x - 1][b.y] == '.') {
+							b.x -= 1;
+						}
+					} while (arr[b.x - 1][b.y] != '#'&&arr[b.x - 1][b.y] != 'O');
+				}
+			}
+			else {
+				do {
+					if (arr[b.x - 1][b.y] == 'O') {
+						ans = -1;
+					}
+					else if (arr[b.x - 1][b.y] == '.') {
+						b.x -= 1;
+					}
+				} while (arr[b.x - 1][b.y] != '#'&&arr[b.x - 1][b.y] != 'O');
 			}
 		}
+
 		else if (num == 2) {
+			rx = r.x; ry = r.y;
 			if (arr[r.x + 1][r.y] == '#') {
 				ans += 1;
-				trace[t] = num; t++;
 				num = r.findRoadTB(arr[r.x][r.y - 1], arr[r.x][r.y + 1]);
-			}
-			else if (arr[r.x + 1][r.y] == 'O') {
-				trace[t] = num;
-				r.x += 1;
 			}
 			else {
 				r.x += 1;
+			}
+
+			if (r.y == b.y) {
+				if (rx == b.x + 1) {
+					if (arr[r.x + 1][r.y] == '#') {
+						b.x = r.x - 1;
+					}
+					else if (arr[r.x][r.y] == 'O') {
+						ans = -1;
+					}
+					else continue;
+				}
+				else {
+					do {
+						if (arr[b.x + 1][b.y] == 'O') {
+							ans = -1;
+						}
+						else if (arr[b.x + 1][b.y] == '.') {
+							b.x += 1;
+						}
+					} while (arr[b.x + 1][b.y] != '#'&&arr[b.x + 1][b.y] != 'O');
+				}
+			}
+			else {
+				do {
+					if (arr[b.x + 1][b.y] == 'O') {
+						ans = -1;
+					}
+					else if (arr[b.x + 1][b.y] == '.') {
+						b.x += 1;
+					}
+				} while (arr[b.x + 1][b.y] != '#'&&arr[b.x + 1][b.y] != 'O');
 			}
 		}
 		else if (num == 3) {
+			rx = r.x; ry = r.y;
 			if (arr[r.x][r.y - 1] == '#') {
 				ans += 1;
-				trace[t] = num; t++;
 				num = r.findRoadLR(arr[r.x - 1][r.y], arr[r.x + 1][r.y]);
-			}
-			else if (arr[r.x][r.y - 1] == 'O') {
-				trace[t] = num;
-				r.y -= 1;
 			}
 			else {
 				r.y -= 1;
 			}
+			if (r.x == b.x) {
+				if (ry == b.y - 1) {
+					if (arr[r.x][r.y - 1] == '#') {
+						b.y = r.y + 1;
+					}
+					else if (arr[r.x][r.y] == 'O') {
+						ans = -1;
+					}
+					else continue;
+				}
+				else {
+					do {
+						if (arr[b.x][b.y - 1] == 'O') {
+							ans = -1;
+						}
+						else if (arr[b.x][b.y - 1] == '.') {
+							b.y -= 1;
+						}
+					} while (arr[b.x][b.y - 1] != '#'&&arr[b.x][b.y - 1] != 'O');
+				}
+			}
+			else {
+				do {
+					if (arr[b.x][b.y - 1] == 'O') {
+						ans = -1;
+					}
+					else if (arr[b.x][b.y - 1] == '.') {
+						b.y -= 1;
+					}
+				} while (arr[b.x][b.y - 1] != '#'&&arr[b.x][b.y - 1] != 'O');
+			}
 		}
+
 		else if (num == 4) {
+		rx = r.x; ry = r.y;
 			if (arr[r.x][r.y + 1] == '#') {
 				ans += 1;
-				trace[t] = num; t++;
 				num = r.findRoadLR(arr[r.x - 1][r.y], arr[r.x + 1][r.y]);
-			}
-			else if (arr[r.x][r.y + 1] == 'O') {
-				trace[t] = num;
-				r.y += 1;
 			}
 			else {
 				r.y += 1;
 			}
-		}
-		else if (num == 5) {
-			trace[t] = num; t++;
-			ans = 1;
-			break;
+			if (r.x == b.x) {
+				if (ry == b.y + 1) {
+					if (arr[r.x][r.y + 1] == '#') {
+						b.y = r.y - 1;
+					}
+					else if (arr[r.x][r.y] == 'O') {
+						ans = -1;
+					}
+					else continue;
+				}
+				else {
+					do {
+						if (arr[b.x][b.y + 1] == 'O') {
+							ans = -1;
+						}
+						else if (arr[b.x][b.y + 1] == '.') {
+							b.y += 1;
+						}
+					} while (arr[b.x][b.y + 1] != '#'&&arr[b.x][b.y + 1] != 'O');
+				}
+			}
+			else {
+				do {
+					if (arr[b.x][b.y + 1] == 'O') {
+						ans = -1;
+					}
+					else if (arr[b.x][b.y + 1] == '.') {
+						b.y += 1;
+					}
+				} while (arr[b.x][b.y + 1] != '#'&&arr[b.x][b.y + 1] != 'O');
+			}
 		}
 		else {
 			ans = -1;
 			break;
 		}
 	} while (r.x != o.x || r.y != o.y);
-
-	if (ans > 0) {
-		for (int i = 0; i < ans; i++) {
-			if (trace[i] == 1) {
-				while (arr[b.x - 1][b.y] != '#'&&arr[rx - 1][ry] != '#') {
-					if (rx + 1 == b.x&&ry == b.y) {
-						if (arr[b.x - 1][b.y] == 'O') {
-							ans = -1;
-							break;
-						}
-					}
-					b.x -= 1;
-					rx -= 1;
-				}
-			}
-			else if (trace[i] == 2) {
-				while (arr[b.x + 1][b.y] != '#'&&arr[rx + 1][ry] != '#') {
-					if (rx - 1 == b.x&&ry == b.y) {
-						if (arr[b.x + 1][b.y] == 'O') {
-							ans = -1;
-							break;
-						}
-					}
-					b.x += 1;
-					rx += 1;
-				}
-			}
-			else if (trace[i] == 3) {
-				while (arr[b.x][b.y - 1] != '#'&&arr[rx][ry - 1] != '#') {
-					if (rx == b.x&&ry + 1 == b.y) {
-						if (arr[b.x][b.y - 1] == 'O') {
-							ans = -1;
-							break;
-						}
-					}
-					b.y -= 1;
-					ry -= 1;
-				}
-			}
-			else if (trace[i] == 4) {
-				while (arr[b.x][b.y + 1] != '#'&&arr[rx][ry + 1] != '#') {
-					if (rx == b.x&&ry - 1 == b.y) {
-						if (arr[b.x][b.y + 1] == 'O') {
-							ans = -1;
-							break;
-						}
-					}
-					b.y += 1;
-					ry += 1;
-				}
-			}
-		}
-	}
 
 	if (ans <= 10) {
 		cout << ans;
