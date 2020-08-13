@@ -18,5 +18,8 @@
     <ClCompile Include="b13460_구슬탈출2.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="sub구현.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

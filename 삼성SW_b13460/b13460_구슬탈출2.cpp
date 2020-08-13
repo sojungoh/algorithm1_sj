@@ -1,3 +1,4 @@
+/*
 #include <iostream>
 #include <string.h>
 
@@ -102,38 +103,6 @@ int main(void) {
 			else {
 				r.x -= 1;
 			}
-			
-			if (r.y == b.y) {
-				if (rx == b.x - 1) {
-					if (arr[r.x - 1][r.y] == '#') {
-						b.x = r.x + 1;
-					}
-					else if (arr[r.x][r.y] == 'O') {
-						ans = -1;
-					}
-					else continue;
-				}
-				else {
-					do {
-						if (arr[b.x - 1][b.y] == 'O') {
-							ans = -1;
-						}
-						else if (arr[b.x - 1][b.y] == '.') {
-							b.x -= 1;
-						}
-					} while (arr[b.x - 1][b.y] != '#'&&arr[b.x - 1][b.y] != 'O');
-				}
-			}
-			else {
-				do {
-					if (arr[b.x - 1][b.y] == 'O') {
-						ans = -1;
-					}
-					else if (arr[b.x - 1][b.y] == '.') {
-						b.x -= 1;
-					}
-				} while (arr[b.x - 1][b.y] != '#'&&arr[b.x - 1][b.y] != 'O');
-			}
 		}
 
 		else if (num == 2) {
@@ -145,39 +114,8 @@ int main(void) {
 			else {
 				r.x += 1;
 			}
-
-			if (r.y == b.y) {
-				if (rx == b.x + 1) {
-					if (arr[r.x + 1][r.y] == '#') {
-						b.x = r.x - 1;
-					}
-					else if (arr[r.x][r.y] == 'O') {
-						ans = -1;
-					}
-					else continue;
-				}
-				else {
-					do {
-						if (arr[b.x + 1][b.y] == 'O') {
-							ans = -1;
-						}
-						else if (arr[b.x + 1][b.y] == '.') {
-							b.x += 1;
-						}
-					} while (arr[b.x + 1][b.y] != '#'&&arr[b.x + 1][b.y] != 'O');
-				}
-			}
-			else {
-				do {
-					if (arr[b.x + 1][b.y] == 'O') {
-						ans = -1;
-					}
-					else if (arr[b.x + 1][b.y] == '.') {
-						b.x += 1;
-					}
-				} while (arr[b.x + 1][b.y] != '#'&&arr[b.x + 1][b.y] != 'O');
-			}
 		}
+
 		else if (num == 3) {
 			rx = r.x; ry = r.y;
 			if (arr[r.x][r.y - 1] == '#') {
@@ -186,37 +124,6 @@ int main(void) {
 			}
 			else {
 				r.y -= 1;
-			}
-			if (r.x == b.x) {
-				if (ry == b.y - 1) {
-					if (arr[r.x][r.y - 1] == '#') {
-						b.y = r.y + 1;
-					}
-					else if (arr[r.x][r.y] == 'O') {
-						ans = -1;
-					}
-					else continue;
-				}
-				else {
-					do {
-						if (arr[b.x][b.y - 1] == 'O') {
-							ans = -1;
-						}
-						else if (arr[b.x][b.y - 1] == '.') {
-							b.y -= 1;
-						}
-					} while (arr[b.x][b.y - 1] != '#'&&arr[b.x][b.y - 1] != 'O');
-				}
-			}
-			else {
-				do {
-					if (arr[b.x][b.y - 1] == 'O') {
-						ans = -1;
-					}
-					else if (arr[b.x][b.y - 1] == '.') {
-						b.y -= 1;
-					}
-				} while (arr[b.x][b.y - 1] != '#'&&arr[b.x][b.y - 1] != 'O');
 			}
 		}
 
@@ -228,37 +135,6 @@ int main(void) {
 			}
 			else {
 				r.y += 1;
-			}
-			if (r.x == b.x) {
-				if (ry == b.y + 1) {
-					if (arr[r.x][r.y + 1] == '#') {
-						b.y = r.y - 1;
-					}
-					else if (arr[r.x][r.y] == 'O') {
-						ans = -1;
-					}
-					else continue;
-				}
-				else {
-					do {
-						if (arr[b.x][b.y + 1] == 'O') {
-							ans = -1;
-						}
-						else if (arr[b.x][b.y + 1] == '.') {
-							b.y += 1;
-						}
-					} while (arr[b.x][b.y + 1] != '#'&&arr[b.x][b.y + 1] != 'O');
-				}
-			}
-			else {
-				do {
-					if (arr[b.x][b.y + 1] == 'O') {
-						ans = -1;
-					}
-					else if (arr[b.x][b.y + 1] == '.') {
-						b.y += 1;
-					}
-				} while (arr[b.x][b.y + 1] != '#'&&arr[b.x][b.y + 1] != 'O');
 			}
 		}
 		else {
@@ -277,4 +153,4 @@ int main(void) {
 	delete [] arr;
 
 	return 0;
-}
+}*/
