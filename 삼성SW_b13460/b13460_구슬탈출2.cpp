@@ -10,51 +10,54 @@ struct Ball {
 	bool sc;
 
 	int findRoadFirst(char top, char bottom, char left, char right) {
-		if (top == 'O') {
-			return 1;
+		if (top == 'O' || bottom == 'O' || left == 'O' || right == 'O') {
+			return 5;
 		}
-		else if (bottom == 'O') {
-			return 2;
+		else {
+			if (top == '.') {
+				return 1;
+			}
+			else if (bottom == '.') {
+				return 2;
+			}
+			else if (left == '.') {
+				return 3;
+			}
+			else if (right == '.') {
+				return 4;
+			}
+			else return -1;
 		}
-		else if (left == 'O') {
-			return 3;
-		}
-		else if (right == 'O') {
-			return 4;
-		}
-		else if (top == '.') {
-			return 1;
-		}
-		else if (bottom == '.') {
-			return 2;
-		}
-		else if (left == '.') {
-			return 3;
-		}
-		else if (right == '.') {
-			return 4;
-		}
-		else return -1;
 	}
 
 	int findRoadTB(char left, char right) {
-		if (left == '.') {
-			return 3;
+		if (left == 'O' || right == 'O') {
+			return 5;
 		}
-		else if (right == '.') {
-			return 4;
+		else {
+			if (left == '.') {
+				return 3;
+			}
+			else if (right == '.') {
+				return 4;
+			}
+			else return -1;
 		}
-		else return -1;
 	}
 
 	int findRoadLR(char top, char bottom) {
-		if (top == '.') {
-			return 1;
+		if (top == 'O' || bottom == 'O') {
+			return 5;
 		}
-		else if (bottom == '.') {
-			return 2;
+		else {
+			if (top == '.') {
+				return 1;
+			}
+			else if (bottom == '.') {
+				return 2;
+			}
+			else return -1;
 		}
-		else return -1;
 	}
 };
 
@@ -136,6 +139,9 @@ int main(void) {
 			else {
 				r.y += 1;
 			}
+		}
+		else if (num == 5) {
+			break;
 		}
 		else {
 			ans = -1;
