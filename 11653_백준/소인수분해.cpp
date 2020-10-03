@@ -12,8 +12,8 @@ int main(void) {
 			k++;
 		}
 		else {
-			n = n / k;
 			cout << k << endl;
+			n = n / k;
 		}
 	}
 	return 0;
